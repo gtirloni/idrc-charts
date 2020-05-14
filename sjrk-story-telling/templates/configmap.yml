@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "sjrk-story-telling.fullname" . }}-config
+  labels:
+    {{- include "sjrk-story-telling.labels" . | nindent 4 }}
+data:
+  config: |-
+    {
+        "type": "sjrk.storyTelling.server.config",
+        "options": {
+            "gradeNames": ["sjrk.storyTelling.server"],
+            "components": {
+                "server": {
+                    "options": {
+                        "globalConfig": {
+                            "port": "80",
+                            "theme": "{{ .Values.theme }}",
+                            "themeIndexFile": "{{ .Values.themeIndexFile }}",
+                            "authoringEnabled": {{ .Values.authoringEnabled }}
+                        }
+                    }
+                }
+            }
+        }
+    }

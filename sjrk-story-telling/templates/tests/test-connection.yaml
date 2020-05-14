@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "sjrk-story-telling.fullname" . }}-test-connection"
+  labels:
+    {{- include "sjrk-story-telling.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "sjrk-story-telling.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never

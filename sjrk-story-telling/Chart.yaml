@@ -1,0 +1,12 @@
+apiVersion: v2
+name: sjrk-story-telling
+description: The Story Telling tool
+icon: https://www.sojustrepairit.org/images/sjrk-logo.svg
+
+maintainers:
+  - name: Inclusive Design Research Centre, OCAD University
+    email: devops@idrc.ocadu.ca
+
+type: application
+version: 0.1.0
+appVersion: master
